@@ -7,9 +7,9 @@ plugins {
 android {
     compileSdk = 33
 
+    namespace = "com.danielgergely.kgl_android"
     defaultConfig {
         minSdk = 21
-        targetSdk = 33
     }
 
     buildTypes {

@@ -31,60 +31,37 @@ kotlin {
     explicitApi()
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(kotlin("stdlib-common"))
             }
         }
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
             }
         }
-        val jsMain by getting {
+        jsMain {
             dependencies {
                 implementation(kotlin("stdlib-js"))
             }
         }
-        val jsTest by getting {
+        jsTest {
             dependencies {
                 implementation(kotlin("test-js"))
             }
-        }
-
-        val linuxX64Main by getting { }
-        val mingwX64Main by getting { }
-
-        val appleOnlySourceSets = if (isMacOs()) {
-            val macosX64Main by getting { }
-            val macosArm64Main by getting { }
-            val iosArm64Main by getting { }
-            val iosX64Main by getting { }
-
-            listOf(macosX64Main, iosArm64Main, iosX64Main, macosArm64Main)
-        } else {
-            listOf()
-        }
-
-        val nativeMain by sourceSets.creating {
-            dependsOn(commonMain)
-
-            linuxX64Main.dependsOn(this)
-            mingwX64Main.dependsOn(this)
-
-            appleOnlySourceSets.forEach { it.dependsOn(this) }
         }
 
         all {
