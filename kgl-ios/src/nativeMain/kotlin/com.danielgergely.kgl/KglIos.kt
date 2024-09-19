@@ -98,6 +98,10 @@ object KglIos : Kgl {
         glDeleteProgram(programId.toUInt())
     }
 
+    override fun validateProgram(programId: Program) {
+        glValidateProgram(programId.toUInt())
+    }
+
     override fun detachShader(programId: Program, shaderId: Shader) {
         glDetachShader(programId.toUInt(), shaderId.toUInt())
     }

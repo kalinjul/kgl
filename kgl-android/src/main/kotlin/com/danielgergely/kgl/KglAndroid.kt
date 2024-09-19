@@ -39,6 +39,8 @@ object KglAndroid : Kgl {
     override fun detachShader(programId: Program, shaderId: Shader) = GL.glDetachShader(programId, shaderId)
     override fun deleteProgram(programId: Program) = GL.glDeleteProgram(programId)
 
+    override fun validateProgram(programId: Program) = GL.glValidateProgram(programId)
+
     override fun getProgramParameter(program: Program, pname: Int): Int {
         val arr = IntArray(1)
         GL.glGetProgramiv(program, pname, arr, 0)

@@ -97,6 +97,12 @@ public class DebugKgl(
         return ret
     }
 
+    override fun validateProgram(programId: Program) {
+        runBefore("validateProgram")
+        kgl.validateProgram(programId)
+        runAfter("validateProgram")
+    }
+
     override fun getProgramParameter(program: Program, pname: Int): Int {
         runBefore("getProgramParameter")
         val ret = kgl.getProgramParameter(program, pname)

@@ -68,7 +68,7 @@ class KglJogl(private val gl: GL) : Kgl {
 
     override fun detachShader(programId: Program, shaderId: Shader) = gl.glDetachShader(programId, shaderId)
     override fun deleteProgram(programId: Program) = gl.glDeleteProgram(programId)
-
+    override fun validateProgram(programId: Program) = gl.glValidateProgram(programId)
     override fun getProgramParameter(program: Program, pname: Int): Int {
         val arr = IntArray(1)
         gl.glGetProgramiv(program, pname, arr, 0)

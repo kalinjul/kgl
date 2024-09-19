@@ -17,6 +17,7 @@ public interface Kgl {
     public fun useProgram(programId: Program)
     public fun detachShader(programId: Program, shaderId: Shader)
     public fun deleteProgram(programId: Program)
+    public fun validateProgram(programId: Program)
 
     public fun getProgramParameter(program: Program, pname: Int): Int
 

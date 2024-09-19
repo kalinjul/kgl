@@ -324,6 +324,10 @@ object KglLwjgl : Kgl {
         GL.glDeleteProgram(programId)
     }
 
+    override fun validateProgram(programId: Program) {
+        GL.glValidateProgram(programId)
+    }
+
     override fun getProgramParameter(program: Program, pname: Int): Int {
         val arr = IntArray(1)
         GL.glGetProgramiv(program, pname, arr)
